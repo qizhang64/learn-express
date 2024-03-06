@@ -28,9 +28,9 @@ const addMsgToRequest = function (req, res, next) {
 app.use(
   cors({origin: 'http://localhost:3000'})
 );
-app.use('/read/usernames', addMsgToRequest);
+app.use('/read/usernames', addMsgToRequest); // using middleware
 
-app.get('/read/usernames', (req, res) => {
+app.get('/read/usernames', (req, res) => { // the path of url
   let usernames = req.users.map(function(user) {
     return {id: user.id, username: user.username};
   });

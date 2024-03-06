@@ -19,7 +19,7 @@ const UserManagement = () => {
 
   const getAllUsernames = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/read/usernames');
+      const response = await axios.get('http://localhost:8000/read/usernames'); // do synchronous
       const data = response.data;
       if(data.error) {
         setUsernames(
