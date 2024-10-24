@@ -3,7 +3,7 @@ import path from 'path';
 import express, { Express, Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 
-interface User {
+interface User { // define user object
   id: number;
   firstName: string;
   lastName: string;
@@ -16,7 +16,7 @@ interface UserRequest extends Request {
 }
 
 const app: Express = express();
-const port: number = 8000;
+const port: number = 8000; // which port the server is going to run on
 
 const dataFile = './data/users.json';
 
@@ -39,8 +39,8 @@ const addMsgToRequest = (req: UserRequest, res: Response, next: NextFunction) =>
   }
 };
 
-app.use(cors({ origin: 'http://localhost:3000' }));
-app.use('/read/usernames', addMsgToRequest);
+app.use(cors({ origin: 'http://localhost:3000' })); // set the origin to somewhere I trust
+app.use('/read/usernames', addMsgToRequest); // cannot leave it empty, empty means you trust everyone
 
 app.get('/read/usernames', (req: UserRequest, res: Response) => {
   let usernames = req.users?.map((user) => {

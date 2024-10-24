@@ -5,7 +5,7 @@ type Props = {
   usernames: UsernameResponse[];
 }
 
-const AllUsernames = ({ usernames } : Props) => (
+const AllUsernames = ({ usernames } : Props) => ( // view component
   <div>
     <h2>All Usernames:</h2>
     <ol>

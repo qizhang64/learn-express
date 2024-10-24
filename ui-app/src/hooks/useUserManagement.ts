@@ -21,9 +21,9 @@ export const useUserManagement = () => {
   const [searchEmail, setSearchEmail] = useState<EmailResponse[]>([]);
   const [showEmail, setShowEmail] = useState<boolean>(false);
 
-  const getAllUsernames = async () => {
+  const getAllUsernames = async () => { // update state
     try {
-      const response = await axios.get<UsernameResponse[]>('http://localhost:8000/read/usernames');
+      const response = await axios.get<UsernameResponse[]>('http://localhost:8000/read/usernames'); // URI
       console.log(response.data);
       setUsernames(response.data);
       setShowUsernames(true);
